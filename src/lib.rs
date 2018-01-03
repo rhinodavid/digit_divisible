@@ -1,15 +1,15 @@
 pub fn run(x: u32) -> Result<bool, &'static str> {
-    return match x == 0 {
+    match x == 0 {
         false => Ok(make_digits(x).iter().all(|d| is_evenly_divisible(x, *d))),
         true => Err("This doesn't work with zero!"),
-    };
+    }
 }
 
 fn is_evenly_divisible(quotient: u32, divisor: u32) -> bool {
-    return match divisor == 0 {
+    match divisor == 0 {
         false => quotient % divisor == 0,
         true => false,
-    };
+    }
 }
 
 fn make_digits(mut x: u32) -> Vec<u32> {
@@ -30,7 +30,7 @@ mod test {
     use super::*;
 
     #[test]
-    fn test_making_digits() {
+    fn test_make_digits() {
         assert_eq!(
             make_digits(123).sort_unstable(),
             vec![1, 2, 3].sort_unstable()
@@ -38,7 +38,7 @@ mod test {
     }
 
     #[test]
-    fn test_is_divisible() {
+    fn test_is_evenly_divisible() {
         assert_eq!(is_evenly_divisible(10, 2), true);
         assert_eq!(is_evenly_divisible(11, 2), false);
         assert_eq!(is_evenly_divisible(111, 1), true);

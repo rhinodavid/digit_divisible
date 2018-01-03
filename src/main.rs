@@ -3,7 +3,7 @@ use digit_divisible::*;
 use std::process;
 
 fn main() {
-    let num = 0;
+    let num = 211;
 
     match run(num) {
         Err(e) => {
