@@ -13,6 +13,5 @@ fn main() {
     match result {
         true => println!("{:?} is divisible by all its digits", num),
         false => println!("{:?} is not divisible by all its digits", num),
-
     }
 }
