@@ -1,0 +1,6 @@
+[package]
+name = "digit_divisible"
+version = "0.1.0"
+authors = ["David Walsh <davidwalsh@fb.com>"]
+
+[dependencies]
