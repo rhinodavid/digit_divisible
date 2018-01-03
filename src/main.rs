@@ -5,16 +5,14 @@ use std::process;
 fn main() {
     let num = 211;
 
-    match run(num) {
-        Err(e) => {
-            eprintln!("Error: \n{}", e);
-            process::exit(1);
-        }
-        Ok(r) => {
-            match r {
-                true => println!("{:?} is divisible by all its digits", num),
-                false => println!("{:?} is not divisible by all its digits", num),
-            }
-        }
+    let result = run(num).unwrap_or_else(|e| {
+        eprintln!("Error: {}", e);
+        process::exit(1);
+    });
+
+    match result {
+        true => println!("{:?} is divisible by all its digits", num),
+        false => println!("{:?} is not divisible by all its digits", num),
+
     }
 }

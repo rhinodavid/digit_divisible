@@ -1,14 +1,14 @@
 pub fn run(x: u32) -> Result<bool, &'static str> {
-    match x == 0 {
-        false => Ok(make_digits(x).iter().all(|d| is_evenly_divisible(x, *d))),
-        true => Err("This doesn't work with zero!"),
+    match x != 0 {
+        true => Ok(make_digits(x).iter().all(|d| is_evenly_divisible(x, *d))),
+        false => Err("This doesn't work with zero!"),
     }
 }
 
 fn is_evenly_divisible(quotient: u32, divisor: u32) -> bool {
-    match divisor == 0 {
-        false => quotient % divisor == 0,
-        true => false,
+    match divisor != 0 {
+        true => quotient % divisor == 0,
+        false => false,
     }
 }
 
